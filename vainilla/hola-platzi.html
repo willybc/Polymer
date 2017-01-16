@@ -1,0 +1,38 @@
+<template>
+    <p>Hola <strong></strong> :)</p>
+</template>
+
+<script>
+(function(window, document) {
+    var documentoImportador = document,
+      documentoAImportar =  (documentoImportador._currentScript || documentoImportador.currentScript).ownerDocument,
+      template = documentoAImportar.querySelector('template').content,
+      prototipoDeMiElemento = Object.create(HTMLElement.prototype);
+      prototipoDeMiElemento.who = 'World';
+    prototipoDeMiElemento.createdCallback = function() {
+        var shadowRoot = this.createShadowRoot(),
+          clone = documentoImportador.importNode(template, true);
+        shadowRoot.appendChild(clone);
+        this.strong = shadowRoot.querySelector('strong');
+        if (this.hasAttribute('who')) {
+            var who = this.getAttribute('who');
+            this.setWho(who);
+        }
+        else {
+          this.setWho(this.who);
+        }
+    };
+    prototipoDeMiElemento.attributeChangedCallback = function(attr, oldVal, newVal) {
+        if (attr === 'who') {
+            this.setWho(newVal);
+        }
+    };
+    prototipoDeMiElemento.setWho = function(val) {
+        this.who = val;
+        this.strong.textContent = this.who;
+    };
+    window.miElemento = documentoImportador.registerElement('hola-platzi', {
+        prototype: prototipoDeMiElemento
+    });
+})(window, document);
+</script>
