@@ -91,6 +91,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="mail"></iron-icon>
             <span>Contact</span>
           </a>
+
+          <a data-route="map" href="{{baseUrl}}map">
+            <iron-icon icon="star"></iron-icon>
+
+            <style>
+              google-map {
+                height: 600px;
+              }
+            </style>
+            <google-map latitude="37.77493" longitude="-122.41942" api-key="1234"></google-map><span>Map</span><iron-icon icon="start"></iron-icon>
+
+          </a>
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -178,6 +190,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <p>This is the contact section</p>
               </paper-material>
             </section>
+
+            <section data-route="map">
+              <paper-material elevation="1">
+                <h1 class="paper-font-display2">Map</h1>
+              </paper-material>
+            </section>
+
           </iron-pages>
         </div>
       </paper-scroll-header-panel>
