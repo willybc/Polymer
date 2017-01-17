@@ -1,0 +1,22 @@
+{
+  "name": "polymer-element",
+  "homepage": "https://github.com/willybc/Polymer",
+  "authors": [
+    "Willy Bardales <willybc06@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "1.0.0",
+    "webcomponentsjs": "^0.7.23"
+  }
+}
