@@ -94,14 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <a data-route="map" href="{{baseUrl}}map">
             <iron-icon icon="star"></iron-icon>
-
-            <style>
-              google-map {
-                height: 600px;
-              }
-            </style>
-            <google-map latitude="37.77493" longitude="-122.41942" api-key="1234"></google-map><span>Map</span><iron-icon icon="start"></iron-icon>
-
+            <span>Map</span>
           </a>
         </paper-menu>
       </paper-scroll-header-panel>
@@ -193,7 +186,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             <section data-route="map">
               <paper-material elevation="1">
-                <h1 class="paper-font-display2">Map</h1>
+                 <style>
+                  google-map {
+                    height: 600px;
+                    width: 1450px;
+                  }
+                </style>
+                <google-map map="{{map}}"></google-map>
+                <google-map-directions map="[[map]]"
+                  start-address="San Francisco" end-address="Mountain View">
+                </google-map-directions>
               </paper-material>
             </section>
 
